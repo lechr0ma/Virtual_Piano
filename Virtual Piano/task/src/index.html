@@ -8,114 +8,141 @@
 <body>
     <div class="container">
         <div class="white-key">
-            <kbd>A</kbd>
-            <kbd>S</kbd>
-            <kbd>D</kbd>
-            <kbd>F</kbd>
-            <kbd>G</kbd>
-            <kbd>H</kbd>
-            <kbd>J</kbd>
+            <kbd id="A">A</kbd>
+            <kbd id="S">S</kbd>
+            <kbd id="D">D</kbd>
+            <kbd id="F">F</kbd>
+            <kbd id="G">G</kbd>
+            <kbd id="H">H</kbd>
+            <kbd id="J">J</kbd>
         </div>
         <div class="black-key">
             <div class="leftBtn">
-                <kbd>W</kbd>
-                <kbd>E</kbd>
+                <kbd id="W">W</kbd>
+                <kbd id="E">E</kbd>
             </div>
             <div class="rightBtn">
-                <kbd>T</kbd>
-                <kbd>Y</kbd>
-                <kbd>U</kbd>
+                <kbd id="T">T</kbd>
+                <kbd id="Y">Y</kbd>
+                <kbd id="U">U</kbd>
             </div>
         </div>
     </div>
-  <!-- <div class="top">
-        <div class="title">
-          <h1> Virtual piano</h1>
-        </div>
-    </div>
-    <div class="piano">
-        <div class="bttns">
-            <div class="container"><kbd>A</kbd></div>
-            <div class="container"><kbd>S</kbd></div>
-            <div class="container"> <kbd>D</kbd></div>
-            <div class="container"><kbd>F</kbd></div>
-            <div class="container"> <kbd>G</kbd></div>
-            <div class="container"><kbd>H</kbd></div>
-            <div class="container"><kbd>J</kbd></div>
-        </div>
-    </div>
 
--->
 <script>
-    document.addEventListener("keydown", function (event) {
-        if (event.code === "KeyA") {
-            console.log("The 'A' key is pressed.");
-            let audioA = new Audio("audio/a.mp3");
-            audioA.play();
+    let pianoButtons = ["A", "S", "D", "F", "G", "H", "J", "W", "E", "T", "Y", "U"]; // create array of piano buttons
 
-        }
-        else if (event.code === "KeyS") {
-            console.log("The 'S' key is pressed.");
-            let audioS = document.createElement("audio");
-            audioS.src = "audio/s.mp3";
-            audioS.play();
-                    }
-        else if (event.code === "KeyD") {
-            console.log("The 'D' key is pressed.");
-            let audioA = new Audio("audio/d.mp3");
-            audioA.play();
-        }
-        else if (event.code === "KeyF") {
-            console.log("The 'F' key is pressed.");
-            let audioA = new Audio("audio/f.mp3");
-            audioA.play();
-        }
-        else if (event.code === "KeyG") {
-            console.log("The 'G' key is pressed.");
-            let audioA = new Audio("audio/g.mp3");
-            audioA.play();
-        }
-        else if (event.code === "KeyH") {
-            console.log("The 'H' key is pressed.");
-            let audioA = new Audio("audio/h.mp3");
-            audioA.play();
-        }
-        else if (event.code === "KeyJ") {
-            console.log("The 'J' key is pressed.");
-            let audioA = new Audio("audio/j.mp3");
-            audioA.play();
-        }
-        else if (event.code === "KeyW") {
-            console.log("The 'w' key is pressed.");
-            let audioA = new Audio("audio/w.mp3");
-            audioA.play();
-        }
-        else if (event.code === "KeyE") {
-            console.log("The 'E' key is pressed.");
-            let audioA = new Audio("audio/E.mp3");
-            audioA.play();
-        }
-        else if (event.code === "KeyT") {
-            console.log("The 'T' key is pressed.");
-            let audioA = new Audio("audio/T.mp3");
-            audioA.play();
-        }
-        else if (event.code === "KeyY") {
-            console.log("The 'Y' key is pressed.");
-            let audioA = new Audio("audio/Y.mp3");
-            audioA.play();
-        }
-        else if (event.code === "KeyU") {
-            console.log("The 'U' key is pressed.");
-            let audioA = new Audio("audio/U.mp3");
-            audioA.play();
-        }
+    let scale = [
+        {transform: 'scale(.95)'}]; // set transform for animation
+        document.addEventListener("click", function (e) {
+        document.getElementById(e.target.id).animate(scale, 75); //animate clicked element
+        let audio = new Audio("audio/" + e.target.id + ".mp3"); // set sound for element
+        audio.play();
+    })
+    document.addEventListener("keydown", function (event){
 
-        else console.log("Warning");
-
+        if (pianoButtons.some(elem => elem === event.code[3]) ) { // check if pressed key equal to some of array
+            document.getElementById(event.code[3]).animate(scale, 75);
+            let audio = new Audio("audio/" + event.code[3] + ".mp3");
+            audio.play();
+        }
+        else console.log("Not a piano key!");
 
     })
-
+    // document.addEventListener("keydown", function (event) {
+    //     if (event.code === "KeyA") {
+    //        let butA = document.getElementById("A");
+    //
+    //         butA.animate(scale, 50);
+    //
+    //         console.log("The 'A' key is pressed.");
+    //         let audioA = new Audio("audio/a.mp3");
+    //         audioA.play();
+    //         //document.getElementById("A").style = "transform: scale(1)";
+    //     }
+    //     else if (event.code === "KeyS") {
+    //         let butA = document.getElementById("S");
+    //         butA.animate(scale, 50);
+    //         console.log("The 'S' key is pressed.");
+    //         let audioS = document.createElement("audio");
+    //         audioS.src = "audio/s.mp3";
+    //         audioS.play();
+    //                 }
+    //     else if (event.code === "KeyD") {
+    //         let butA = document.getElementById("D");
+    //         butA.animate(scale, 50);
+    //         console.log("The 'D' key is pressed.");
+    //         let audioA = new Audio("audio/d.mp3");
+    //         audioA.play();
+    //     }
+    //     else if (event.code === "KeyF") {
+    //         let butA = document.getElementById("F");
+    //         butA.animate(scale, 50);
+    //         console.log("The 'F' key is pressed.");
+    //         let audioA = new Audio("audio/f.mp3");
+    //         audioA.play();
+    //     }
+    //     else if (event.code === "KeyG") {
+    //         let butA = document.getElementById("G");
+    //         butA.animate(scale, 50);
+    //         console.log("The 'G' key is pressed.");
+    //         let audioA = new Audio("audio/g.mp3");
+    //         audioA.play();
+    //     }
+    //     else if (event.code === "KeyH") {
+    //         let butA = document.getElementById("H");
+    //         butA.animate(scale, 50);
+    //         console.log("The 'H' key is pressed.");
+    //         let audioA = new Audio("audio/h.mp3");
+    //         audioA.play();
+    //     }
+    //     else if (event.code === "KeyJ") {
+    //         let butA = document.getElementById("J");
+    //         butA.animate(scale, 50);
+    //         console.log("The 'J' key is pressed.");
+    //         let audioA = new Audio("audio/j.mp3");
+    //         audioA.play();
+    //     }
+    //     else if (event.code === "KeyW") {
+    //         let butA = document.getElementById("W");
+    //         butA.animate(scale, 50);
+    //         console.log("The 'w' key is pressed.");
+    //         let audioA = new Audio("audio/w.mp3");
+    //         audioA.play();
+    //     }
+    //     else if (event.code === "KeyE") {
+    //         let butA = document.getElementById("E");
+    //         butA.animate(scale, 50);
+    //         console.log("The 'E' key is pressed.");
+    //         let audioA = new Audio("audio/E.mp3");
+    //         audioA.play();
+    //     }
+    //     else if (event.code === "KeyT") {
+    //         let butA = document.getElementById("T");
+    //         butA.animate(scale, 50);
+    //         console.log("The 'T' key is pressed.");
+    //         let audioA = new Audio("audio/T.mp3");
+    //         audioA.play();
+    //     }
+    //     else if (event.code === "KeyY") {
+    //         let butA = document.getElementById(event.code[3]);
+    //         butA.animate(scale, 50);
+    //         console.log("The 'Y' key is pressed.");
+    //         let audioA = new Audio("audio/Y.mp3");
+    //         audioA.play();
+    //     }
+    //     else if (event.code === "KeyU") {
+    //         let butA = document.getElementById("U");
+    //         butA.animate(scale, 50);
+    //         console.log("The 'U' key is pressed.");
+    //         let audioA = new Audio("audio/U.mp3");
+    //         audioA.play();
+    //     }
+    //
+    //     else console.log("Warning");
+    //
+    //
+    // })
 </script>
 </body>
 </html>
