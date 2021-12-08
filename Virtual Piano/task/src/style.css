@@ -1,0 +1,85 @@
+*{
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+}
+
+body { background: #2a9d8f;
+        width: 98vw;
+    margin: auto;
+    align-items: center;
+}
+.container { display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: auto auto;
+    width: 90vw;
+    text-align: center;
+    position: relative;
+
+}
+.white-key {
+    display: flex;
+    width: 70vw;
+}
+.white-key kbd { display: inline-block;
+    background: white;
+    width: 10vw;
+    height: 30vh;
+    border: black 2px solid;
+}
+.black-key { display: flex;
+    justify-content: space-between;
+    position: absolute;
+    order: 2;
+    width: 70vw;
+    transform: translateY(-50%);
+
+}
+.black-key kbd { width: 5vw;
+    height: 15vh;
+    display: inline-block;
+    background: black;
+    color: white;
+}
+.leftBtn {
+    display: flex;
+    width: 20vw;
+    margin-left: 5vw;
+    justify-content: space-around;
+}
+.rightBtn {
+    display: flex;
+    width: 30vw;
+    justify-content: space-around;
+    margin-right: 5vw;
+}
+.top{ display: flex;
+    justify-content: center;
+    width: 80vw;
+    margin: 10vw auto;
+
+}
+.title{ display: flex;
+    align-items: center;
+
+}
+.piano{justify-content: center;
+    width:80vw;
+    height: auto;
+    margin: auto;
+
+}
+.bttns{ display: flex;
+    flex-flow: row;
+    width: 100%;
+}
+/*.container{ border: black 2px solid;
+    margin-left: 0;
+    margin-right: 0;
+    background: white;
+    flex: 0 1 30vw;
+    height: 30vh;
+
+
+}

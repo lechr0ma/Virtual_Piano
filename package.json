@@ -1,0 +1,10 @@
+{
+  "devDependencies": {
+    "hs-test-web": "https://github.com/hyperskill/hs-test-web/archive/mocha.tar.gz",
+    "puppeteer": "2.0.0",
+    "mocha": "^9.1.3"
+  },
+  "scripts": {
+    "test": "mocha"
+  }
+}
